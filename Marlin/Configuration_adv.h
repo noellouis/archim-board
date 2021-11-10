@@ -2135,6 +2135,56 @@
 // @section tmc
 
 /**
+ * Trinamic settings from Jason at UltiMachine
+ * from email to Noah P. on 10/18/2021:
+ * "Hi,
+  These are the recommended Trinamic settings to be made in Marlin:
+
+  In Configuration_adv.h
+
+  Add these lines for all the axis like so:
+
+ #define TMC_ADV() { \
+  driverX.bbmclks(6); \
+  driverY.bbmclks(6); \
+  driverZ.bbmclks(6); \
+  driverY2.bbmclks(6); \
+  driverZ2.bbmclks(6); \
+  driverE0.bbmclks(6); \
+  driverE1.bbmclks(6); \
+  }
+
+
+  Regards,
+  Jason
+  UltiMachine"
+
+* Louis to implement. I (Louis) don't think this looks like the correct code language though.
+  It's not consistent with the rest of the file.
+  Should it be something like this?:
+
+#define TMC_ADV()
+  driverX.bbmclks 6
+  driverY.bbmclks 6
+  driverZ.bbmclks 6
+  driverY2.bbmclks 6
+  driverZ2.bbmclks 6
+  driverE0.bbmclks 6
+  driverE1.bbmclks 6
+*/
+
+  
+ #define TMC_ADV() { \
+  driverX.bbmclks(6); \
+  driverY.bbmclks(6); \
+  driverZ.bbmclks(6); \
+  driverY2.bbmclks(6); \
+  driverZ2.bbmclks(6); \
+  driverE0.bbmclks(6); \
+  driverE1.bbmclks(6); \
+  }
+  
+/**
  * TMC26X Stepper Driver options
  *
  * The TMC26XStepper library is required for this stepper driver.
